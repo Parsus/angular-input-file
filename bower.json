@@ -1,0 +1,17 @@
+{
+  "name": "angular-input-file",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Parsus/angular-input-file",
+  "authors": [
+    "Andrew McWatters <mcwattersandrew@gmail.com>"
+  ],
+  "description": "Adds directives for input[file]",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
