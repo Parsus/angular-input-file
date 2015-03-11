@@ -12,9 +12,25 @@
   function ngModel() {
     return {
       restrict: 'A',
-      terminal: true,
-      priority: 400,
+      priority: 500,
       link: function(scope, element, attr) {
+        if (element[0].tagName !== 'INPUT') {
+          return;
+        }
+
+        if (attr.type !== 'file') {
+          return;
+        }
+
+        element.bind('change', function(e) {
+          var fr = new FileReader();
+          fr.onload = function(e) {
+            scope.$apply(function() {
+              scope[attr.ngModel] = e.target.result;
+            });
+          };
+          fr.readAsDataURL(e.target.files[0]);
+        });
       }
     };
   }
