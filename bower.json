@@ -1,7 +1,7 @@
 {
   "name": "angular-input-file",
   "main": "angular-input-file.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/Parsus/angular-input-file",
   "authors": [
     "Andrew McWatters <mcwattersandrew@gmail.com>"

@@ -9,7 +9,8 @@
   var ngInputFileModule = angular.module('ngInputFile', []).
                           directive('ngModel', ngModel);
 
-  function ngModel() {
+  ngModel.$inject = ['$parse'];
+  function ngModel($parse) {
     return {
       restrict: 'A',
       priority: 500,
@@ -26,7 +27,8 @@
           var fr = new FileReader();
           fr.onload = function(e) {
             scope.$apply(function() {
-              scope[attr.ngModel] = e.target.result;
+              var model = $parse(attrs.ngModel);
+              model.assign(scope, e.target.result);
             });
           };
           fr.readAsDataURL(e.target.files[0]);
