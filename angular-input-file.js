@@ -14,24 +14,20 @@
     return {
       restrict: 'A',
       priority: 500,
-      link: function(scope, element, attr) {
+      link: function(scope, element, attrs) {
         if (element[0].tagName !== 'INPUT') {
           return;
         }
 
-        if (attr.type !== 'file') {
+        if (attrs.type !== 'file') {
           return;
         }
 
         element.bind('change', function(e) {
-          var fr = new FileReader();
-          fr.onload = function(e) {
-            scope.$apply(function() {
-              var model = $parse(attrs.ngModel);
-              model.assign(scope, e.target.result);
-            });
-          };
-          fr.readAsDataURL(e.target.files[0]);
+          scope.$apply(function() {
+            var model = $parse(attrs.ngModel);
+            model.assign(scope, e.target);
+          });
         });
       }
     };

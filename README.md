@@ -28,13 +28,14 @@ angular.module('myApp', ['ngInputFile']);
 **Directive**
 
 ### ngModel
-Extends the `ngModel` directive to bind a data URL to the scope.
+Extends the `ngModel` directive to bind a
+[FileList](https://developer.mozilla.org/en-US/docs/Web/API/FileList) to the
+scope.
 
 **Example:**
 
 ```
 <input type="file" accept="image/*" capture="camera" ng-model="photo">
-<img ng-if="photo" src={{photo}}>
 ```
 
 ## License
