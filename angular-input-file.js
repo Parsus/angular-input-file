@@ -26,7 +26,7 @@
         element.bind('change', function(e) {
           scope.$apply(function() {
             var model = $parse(attrs.ngModel);
-            model.assign(scope, e.target);
+            model.assign(scope, e.target.files);
           });
         });
       }
